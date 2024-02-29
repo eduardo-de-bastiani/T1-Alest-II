@@ -1,0 +1,16 @@
+o carro sempre começa de algum ponto da esquerda
+    talvez precisamos fzr uma verificação para achar o começo da trilha
+
+quando tem dinheiro no cruzamento, o valor é multiplicado por 2
+
+
+1 passo: fazer metodo capaz de ler arquivos txt
+    feedback: consegui ler os arquivos:
+        Arquivo C:\Users\Windows 10\OneDrive - PUCRS - BR\3° Semestre\ALEST II\T1\casos-cohen-noite\casoG50.txt lido com sucesso
+        Arquivo C:\Users\Windows 10\OneDrive - PUCRS - BR\3° Semestre\ALEST II\T1\casos-cohen-noite\casoG100.txt lido com sucesso
+        Arquivo C:\Users\Windows 10\OneDrive - PUCRS - BR\3° Semestre\ALEST II\T1\casos-cohen-noite\casoG200.txt lido com sucesso
+        Arquivo C:\Users\Windows 10\OneDrive - PUCRS - BR\3° Semestre\ALEST II\T1\casos-cohen-noite\casoG500.txt lido com sucesso
+        Arquivo C:\Users\Windows 10\OneDrive - PUCRS - BR\3° Semestre\ALEST II\T1\casos-cohen-noite\casoG750.txt lido com sucesso
+        Arquivo C:\Users\Windows 10\OneDrive - PUCRS - BR\3° Semestre\ALEST II\T1\casos-cohen-noite\casoG1000.txt lido com sucesso
+        Arquivo C:\Users\Windows 10\OneDrive - PUCRS - BR\3° Semestre\ALEST II\T1\casos-cohen-noite\casoG1500.txt lido com sucesso
+        Arquivo C:\Users\Windows 10\OneDrive - PUCRS - BR\3° Semestre\ALEST II\T1\casos-cohen-noite\casoG2000.txt lido com sucesso
