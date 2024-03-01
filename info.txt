@@ -14,3 +14,8 @@ quando tem dinheiro no cruzamento, o valor é multiplicado por 2
         Arquivo C:\Users\Windows 10\OneDrive - PUCRS - BR\3° Semestre\ALEST II\T1\casos-cohen-noite\casoG1000.txt lido com sucesso
         Arquivo C:\Users\Windows 10\OneDrive - PUCRS - BR\3° Semestre\ALEST II\T1\casos-cohen-noite\casoG1500.txt lido com sucesso
         Arquivo C:\Users\Windows 10\OneDrive - PUCRS - BR\3° Semestre\ALEST II\T1\casos-cohen-noite\casoG2000.txt lido com sucesso
+
+#IDEIA DA RESOLUÇÃO
+    1 - Após ler o arquivo, devemos iniciar manualmente a posição onde irá começar o caminho.
+    2 - Com isso, deve-se continuar andando na direção até encontrar um número, onde será somado numa variável.
+    3 - Somente deverá trocar de direção ao achar um (/ ou \)
