@@ -1,8 +1,6 @@
 o carro sempre começa de algum ponto da esquerda
     talvez precisamos fzr uma verificação para achar o começo da trilha
 
-quando tem dinheiro no cruzamento, o valor é multiplicado por 2
-
 
 1 passo: fazer metodo capaz de ler arquivos txt
     feedback: consegui ler os arquivos:
@@ -19,3 +17,34 @@ quando tem dinheiro no cruzamento, o valor é multiplicado por 2
     1 - Após ler o arquivo, devemos iniciar manualmente a posição onde irá começar o caminho.
     2 - Com isso, deve-se continuar andando na direção até encontrar um número, onde será somado numa variável.
     3 - Somente deverá trocar de direção ao achar um (/ ou \)
+
+
+"-" e "|" ruas:
+Devemos Seguir na direção em que a rua vai. Se estamos indo da esquerda para a direita, devemos fazer uma verificação se o símbolo de mesma 
+linha porém na próxima coluna é "-" para podermos seguir. Se estamos indo da direita para a esquerda, devemos fazer uma verificação se o 
+símbolo de mesma linha, porém coluna anterior também é uma rua "-". Se estamos indo de cima para baixo, devemos verificar se o simbolo de 
+mesma coluna porém da próxima linha é um "|". E se estamos indo de baixo para cima, devemos verificar se o simbolo de mesma coluna porém 
+da linha anterior é um "|".
+
+cruzamento:
+Se estamos em uma rua "-" ou "|" e nos deparamos com um cruzamento, devemos atravessá-lo. Se encontrarmos o mesmo valor na mesma linha 
+e coluna mais de uma vez, devemos adicioná-lo novamente e seguir na direção que estávamos indo anteriormente.
+
+"num" valor:
+"num" pode ser qualquer valor numérico inteiro, e não a string num. Devemos adicionar a uma variável todos os valores que encontrarmos no mapa 
+na ordem que seguimos. O truque está no tamanho do número. Por exemplo: se econtramos uma casa decimal de um número, devemos fazer uma 
+verificação se existem outras casas decimais na mesma linha, porém na próxima coluna. Fazemos essa verificação até a próxima coluna 
+ser um símbolo que não seja um número. Exemplo: encontramos a casa decimal 7. Devemos fazer uma verificação se na mesma linha, na próxima 
+coluna existe outra casa decimal. Fazemos essa verificação até terminarem os números em sequência. Neste exemplo, achamos o número 7229. 
+Devemos adicioná-lo a uma variável que está sempre somando os demais valores encontrados.
+
+"/" e "\" curva
+Se estamos andando da esquerda para direita e encontramos o símbolo "/", o correrá uma curva para cima. Assim, devemos mudar nosso rumo 
+para cima. Se estamos andando da direita para a esquerda e encontramos o símbolo "/", devemos mudar o trajeto para baixo. Se estamos 
+andando de cima para baixo e encontramos o simbolo "/", devemos fazer mudar a rota para a esquerda. Se estamos andando de baixo para cima 
+e encontramos o símbolo "/", devemos mudar o trajeto para a direita.
+
+Se estamos andando da direita para a esquerda e encontramos o símbolo "\", devemos seguir o caminho para cima. Se estamos andando da esquerda 
+para a direita e encontramos o símbolo "\", devemos fazer uma curva para baixo. Se estamos andando de cima para baixo e encontramos 
+o símbolo "\", devemos fazer uma curva para a direita. Se estamos andando de baixo para cima e encontramos o simbolo "\", devemos fazer 
+uma curva para a esquerda.
