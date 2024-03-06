@@ -6,23 +6,17 @@ import java.util.List;
 
 public class main{
     public static void main(String[] args) {
+        carregaArquivo();
+    }
+
+    public static void carregaArquivo() {
         List<String> caminhosArquivos = new ArrayList<>();
-        java.io.File arquivo1 = new java.io.File("casos-cohen-noite/casoG50.txt");
-        java.io.File arquivo2 = new java.io.File("casos-cohen-noite/casoG100.txt");
-        java.io.File arquivo3 = new java.io.File("casos-cohen-noite/casoG200.txt");
-        java.io.File arquivo4 = new java.io.File("casos-cohen-noite/casoG500.txt");
-        java.io.File arquivo5 = new java.io.File("casos-cohen-noite/casoG750.txt");
-        java.io.File arquivo6 = new java.io.File("casos-cohen-noite/casoG1000.txt");
-        java.io.File arquivo7 = new java.io.File("casos-cohen-noite/casoG1500.txt");
-        java.io.File arquivo8 = new java.io.File("casos-cohen-noite/casoG2000.txt");
-        caminhosArquivos.add(arquivo1.getAbsolutePath());
-        caminhosArquivos.add(arquivo2.getAbsolutePath());
-        caminhosArquivos.add(arquivo3.getAbsolutePath());
-        caminhosArquivos.add(arquivo4.getAbsolutePath());
-        caminhosArquivos.add(arquivo5.getAbsolutePath());
-        caminhosArquivos.add(arquivo6.getAbsolutePath());
-        caminhosArquivos.add(arquivo7.getAbsolutePath());
-        caminhosArquivos.add(arquivo8.getAbsolutePath());
+        String[] nomesArquivos = {"casoG50.txt", "casoG100.txt", "casoG200.txt", "casoG500.txt", "casoG750.txt", "casoG1000.txt", "casoG1500.txt", "casoG2000.txt"};
+
+        for (String nome : nomesArquivos) {
+            java.io.File arquivo = new java.io.File("casos-cohen-noite/" + nome);
+            caminhosArquivos.add(arquivo.getAbsolutePath());
+        }
 
         leArquivos(caminhosArquivos);
     }
@@ -30,7 +24,6 @@ public class main{
     public static void leArquivos(List<String> caminhosArquivos){
         for (String caminho : caminhosArquivos) {
             try(BufferedReader br = new BufferedReader(new FileReader(caminho))){
-                //teste 
                 System.out.println("Arquivo " + caminho + " lido com sucesso");
 
                 String primeiraLinha = br.readLine();
@@ -38,20 +31,22 @@ public class main{
                 int linhas = Integer.parseInt(tamanhoMapa[0]);
                 int colunas = Integer.parseInt(tamanhoMapa[1]);
 
-
                 boolean encontrouInicio = false;
                 int linhaAtual = 1;
+                int inicioY = -1;
+                int inicioX = 0;
 
                 while(!encontrouInicio && linhaAtual <= linhas){
                     String linha = br.readLine();
                     if (linha.startsWith("-")) {
+                        inicioY = linhaAtual;
                         encontrouInicio = true;
                     }
                     linhaAtual++;
                 }
 
                 if (encontrouInicio) {
-                    processarMapa(br, linhas, colunas);
+                    processarMapa(br, linhas, colunas, inicioY, inicioX);
                 } else {
                     System.out.println("Não foi possível encontrar o início do caminho no mapa: " + caminho);
                 }
@@ -64,21 +59,24 @@ public class main{
         }
     }
 
-    public static void processarMapa(BufferedReader br, int linhas, int colunas) throws IOException {
+    public static void processarMapa(BufferedReader br, int linhas, int colunas, int inicioY, int inicioX) throws IOException {
         int somaValores = 0;
         char[][] mapa = new char[linhas][colunas];
 
-        // Preenche o mapa
         for (int i = 0; i < linhas; i++) {
             String linha = br.readLine();
+            if (linha == null) {
+                break;
+            }
+            
             for (int j = 0; j < colunas; j++) {
                 mapa[i][j] = linha.charAt(j);
             }
         }
 
-        int posX = 0;
-        int posY = 0;
-        int direcaoX = 1; // Inicia da esquerda para a direita
+        int posX = inicioX;
+        int posY = inicioY;
+        int direcaoX = 1;
         int direcaoY = 0;
 
         while (posX >= 0 && posX < colunas && posY >= 0 && posY < linhas) {
