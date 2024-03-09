@@ -13,6 +13,10 @@ o carro sempre começa de algum ponto da esquerda
         Arquivo C:\Users\Windows 10\OneDrive - PUCRS - BR\3° Semestre\ALEST II\T1\casos-cohen-noite\casoG1500.txt lido com sucesso
         Arquivo C:\Users\Windows 10\OneDrive - PUCRS - BR\3° Semestre\ALEST II\T1\casos-cohen-noite\casoG2000.txt lido com sucesso
 
+2 passo: encontrar o começo do caminho
+
+3 passo: criar a logica para interpretar o caminho feito pelos bandidos.
+
 #IDEIA DA RESOLUÇÃO
     1 - Após ler o arquivo, devemos iniciar manualmente a posição onde irá começar o caminho.
     2 - Com isso, deve-se continuar andando na direção até encontrar um número, onde será somado numa variável.
@@ -48,3 +52,19 @@ Se estamos andando da direita para a esquerda e encontramos o símbolo "\", deve
 para a direita e encontramos o símbolo "\", devemos fazer uma curva para baixo. Se estamos andando de cima para baixo e encontramos 
 o símbolo "\", devemos fazer uma curva para a direita. Se estamos andando de baixo para cima e encontramos o simbolo "\", devemos fazer 
 uma curva para a esquerda.
+
+
+PROBLEMAS ENCONTRADOS AO LONGO DO TRABALHO (meramente para a documentação do relatorio)
+    Posição: (37, 0) - simbolo: 
+    Posição: (37, 1) - simbolo:
+    Posição: (37, 2) - simbolo:
+    Posição: (37, 3) - simbolo:
+    Posição: (37, 4) - simbolo:
+    .
+    .
+    .
+    Posição: (37, 49) - simbolo:
+    Soma dos valores encontrados: 0
+    Numero total de passos: 50
+
+    Além do símbolo em vigor não ser mostrado, o valor de Y está completamente parado
