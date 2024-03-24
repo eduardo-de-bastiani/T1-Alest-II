@@ -25,21 +25,21 @@ o carro sempre começa de algum ponto da esquerda
 
 "-" e "|" ruas:
 Devemos Seguir na direção em que a rua vai. Se estamos indo da esquerda para a direita, devemos fazer uma verificação se o símbolo de mesma 
-linha porém na próxima coluna é "-" para podermos seguir. Se estamos indo da direita para a esquerda, devemos fazer uma verificação se o 
-símbolo de mesma linha, porém coluna anterior também é uma rua "-". Se estamos indo de cima para baixo, devemos verificar se o simbolo de 
-mesma coluna porém da próxima linha é um "|". E se estamos indo de baixo para cima, devemos verificar se o simbolo de mesma coluna porém 
-da linha anterior é um "|".
+linha porém da coluna da direita é "-" para podermos seguir. Se estamos indo da direita para a esquerda, devemos fazer uma verificação se o 
+símbolo de mesma linha, porém coluna da esquerda também é uma rua "-". Se estamos indo de cima para baixo, devemos verificar se o simbolo de 
+mesma coluna porém da linha abaixo é um "|". E se estamos indo de baixo para cima, devemos verificar se o simbolo de mesma coluna porém 
+da linha acima é um "|".
 
 cruzamento:
 Se estamos em uma rua "-" ou "|" e nos deparamos com um cruzamento, devemos atravessá-lo. Se encontrarmos o mesmo valor na mesma linha 
 e coluna mais de uma vez, devemos adicioná-lo novamente e seguir na direção que estávamos indo anteriormente.
 
 "num" valor:
-"num" pode ser qualquer valor numérico inteiro, e não a string num. Devemos adicionar a uma variável todos os valores que encontrarmos no mapa 
+"num" pode ser qualquer valor numérico inteiro. Devemos adicionar a uma variável todos os valores que encontrarmos no mapa 
 na ordem que seguimos. O truque está no tamanho do número. Por exemplo: se econtramos uma casa decimal de um número, devemos fazer uma 
-verificação se existem outras casas decimais na mesma linha, porém na próxima coluna. Fazemos essa verificação até a próxima coluna 
-ser um símbolo que não seja um número. Exemplo: encontramos a casa decimal 7. Devemos fazer uma verificação se na mesma linha, na próxima 
-coluna existe outra casa decimal. Fazemos essa verificação até terminarem os números em sequência. Neste exemplo, achamos o número 7229. 
+verificação se existem outras casas decimais no sentido em que estamos indo. Fazemos essa verificação até a próxima posição
+ser um símbolo que não seja um número. Exemplo: encontramos a casa decimal 7. Devemos fazer uma verificação se o próximo símbolo na direção
+que estamos seguindo é outra casa decimal. Fazemos essa verificação até terminarem os números em sequência. Neste exemplo, achamos o número 7229. 
 Devemos adicioná-lo a uma variável que está sempre somando os demais valores encontrados.
 
 "/" e "\" curva
