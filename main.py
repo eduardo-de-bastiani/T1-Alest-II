@@ -18,7 +18,25 @@ for nome in nomes_arq:
             print("A posicao inicial é: ", p_inicial)
 
 
+def criterios(mapa, p_atual, direcao):
+    x,y = p_atual; 
+    s_atual = mapa[x][y]
 
+    if s_atual == ['-']:
+        if direcao == "direita":
+            proxima_p = (x + 1, y)
+
+        elif direcao == "esquerda":
+            proxima_p = (x - 1, y)
         
+        elif direcao == "cima":
+            proxima_p = (x, y + 1)
         
+        elif direcao == "baixo":
+            proxima_p = (x, y - 1)
+        
+        if mapa[proxima_p[1]][proxima_p[0]] == '-':     #verifica se a proxima_p é rua
+            return proxima_p, direcao
+
+    return p_atual, direcao               
 
