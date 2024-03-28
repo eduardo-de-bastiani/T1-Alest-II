@@ -76,4 +76,4 @@ MUDANÇA DE PLANOS, OU MELHOR, DE LINGUAGEM:
 
 ATUALIZAÇÃO:
     - em menos de 15 minutos, já consegui fazer a leitura dos arquivos e encontrar o ponto inicial do mapa
-    - o impressionante é que isso foi possível com apenas 13 linhas de codigo
+    - o impressionante é que isso foi possível com apenas 12 linhas de codigo
