@@ -77,3 +77,7 @@ MUDANÇA DE PLANOS, OU MELHOR, DE LINGUAGEM:
 ATUALIZAÇÃO:
     - em menos de 15 minutos, já consegui fazer a leitura dos arquivos e encontrar o ponto inicial do mapa
     - o impressionante é que isso foi possível com apenas 12 linhas de codigo
+
+
+O timer não contabiliza o tempo para encontrar a posição inicial pois estão em métodos separados (devemos descrever isso)
+timer formatado em 5 casas após a vírgula

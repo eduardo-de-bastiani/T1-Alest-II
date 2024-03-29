@@ -1,3 +1,5 @@
+import time
+
 #função principal que faz o caminho e soma na ordem
 def calcular_soma_numeros(p_inicial, conteudo):
     coluna_at, linha_at = p_inicial
@@ -98,6 +100,8 @@ def printa_resultado(p_inicial, conteudo, nome):
     if p_inicial:
         print(f"------------ [ ARQUIVO : {nome_arquivo} ] ------------")
 
+        start_time = time.time()
+
         print("Posição inicial: ", p_inicial)
 
         soma = calcular_soma_numeros(p_inicial, conteudo)
@@ -106,17 +110,26 @@ def printa_resultado(p_inicial, conteudo, nome):
         soma_n_ordenada = soma_fora_ordem(conteudo)
         print("Soma dos números encontrados fora de ordem: ", soma_n_ordenada)
 
+        end_time = time.time()
+        tempo = end_time - start_time
+        tempo_form = f"{tempo: .5f}"
+
+        print("Tempo decorrido para realizar o caminho e gerar os resultados: ", tempo_form, "segundos")
+
         print("\n-----------------------------------------------------------\n")
     else:
         print("Não foi possível encontrar a posição inicial no arquivo: ", nome_arquivo)
 
 #função que lê o arquivo e chama outros métodos
 def processa_arquivo(nome):
+    
     with open(nome, 'r') as arquivo:
         conteudo = arquivo.read()
         if conteudo:
             p_inicial = encontra_inicial(conteudo)
             printa_resultado(p_inicial, conteudo, nome)
+    
+
 
 #definição dos arquivos a serem lidos
 nomes_arq = ['casos-cohen-noite/casoG50.txt', 'casos-cohen-noite/casoG100.txt', 'casos-cohen-noite/casoG200.txt', 'casos-cohen-noite/casoG500.txt', 
