@@ -15,20 +15,7 @@ def calcular_soma_numeros(p_inicial, conteudo):
         if char == '#':  #finaliza quando achar o fim
             break
 
-        elif char == '-': #continua na mesma direção
-            linha_at += direcao[0]
-            coluna_at += direcao[1]
-
-
-        elif char == '|': #como esse símbolo vária dependendo da direção temq ter uma verificação pra todas as direções
-            if direcao == (0, 1): #direita
-                direcao = (0, 1)
-            elif direcao == (0, -1): #esquerda
-                direcao = (0, -1)
-            elif direcao == (-1, 0): #cima
-                direcao = (-1, 0)
-            elif direcao == (1, 0): #baixo
-                direcao = (1, 0)
+        elif char == '-' or char == '|': #continua na mesma direção
             linha_at += direcao[0]
             coluna_at += direcao[1]
 
