@@ -6,11 +6,13 @@ def calcular_soma_numeros(p_inicial, conteudo):
     direcao = (0, 1)
     total = 0
     linhas = conteudo.strip().split('\n')
+    passos = 0
 
     while True:
         if linha_at < 0 or linha_at >= len(linhas) or coluna_at < 0 or coluna_at >= len(linhas[linha_at]):
             break
         char = linhas[linha_at][coluna_at] #define o caracter atual
+        passos += 1
 
         if char == '#':  #finaliza quando achar o fim
             break
@@ -55,6 +57,7 @@ def calcular_soma_numeros(p_inicial, conteudo):
                     break
             total += int(num)
 
+    print("Quantidade total de passos realizados: ",passos)
     return total  
 
 #realiza a soma dos números fora de ordem (apenas somando todos os presentes no arquivo)
@@ -87,15 +90,15 @@ def printa_resultado(p_inicial, conteudo, nome):
     if p_inicial:
         print(f"------------ [ ARQUIVO : {nome_arquivo} ] ------------")
 
-        start_time = time.time()
-
         print("Posição inicial: ", p_inicial)
-
-        soma = calcular_soma_numeros(p_inicial, conteudo)
-        print("Soma dos números encontrados: ", soma)
 
         soma_n_ordenada = soma_fora_ordem(conteudo)
         print("Soma dos números encontrados fora de ordem: ", soma_n_ordenada)
+
+        start_time = time.time()
+
+        soma = calcular_soma_numeros(p_inicial, conteudo)
+        print("Soma dos números encontrados: ", soma)
 
         end_time = time.time()
         tempo = end_time - start_time
