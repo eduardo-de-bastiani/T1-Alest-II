@@ -1,4 +1,5 @@
 import time
+import matplotlib.pyplot as plt
 
 #função principal que faz o caminho e soma na ordem
 def calcular_soma_numeros(p_inicial, conteudo):
@@ -57,8 +58,7 @@ def calcular_soma_numeros(p_inicial, conteudo):
                     break
             total += int(num)
 
-    print("Quantidade total de passos realizados: ",passos)
-    return total  
+    return total, passos 
 
 #realiza a soma dos números fora de ordem (apenas somando todos os presentes no arquivo)
 def soma_fora_ordem(arquivo):
@@ -97,35 +97,54 @@ def printa_resultado(p_inicial, conteudo, nome):
 
         start_time = time.time()
 
-        soma = calcular_soma_numeros(p_inicial, conteudo)
+        soma, passos = calcular_soma_numeros(p_inicial, conteudo)
         print("Soma dos números encontrados: ", soma)
 
         end_time = time.time()
         tempo = end_time - start_time
         tempo_form = f"{tempo: .5f}"
 
+        print("Quantidade total de passos realizados: ", passos)
+
         print("Tempo decorrido para realizar o caminho e gerar os resultados: ", tempo_form, "segundos")
 
         print("\n-----------------------------------------------------------\n")
+
+        return tempo, passos
     else:
         print("Não foi possível encontrar a posição inicial no arquivo: ", nome_arquivo)
 
 #função que lê o arquivo e chama outros métodos
 def processa_arquivo(nome):
-    
     with open(nome, 'r') as arquivo:
         conteudo = arquivo.read()
         if conteudo:
             p_inicial = encontra_inicial(conteudo)
-            printa_resultado(p_inicial, conteudo, nome)
-    
+            tempos, passos = printa_resultado(p_inicial, conteudo, nome)
+            return tempos, passos
 
+#função que plota o gráfico
+def plota_grafico(tempos, passos):
+    plt.plot(passos, tempos, color='purple')
+    plt.title('COMPLEXIDADE DO ALGORITMO', loc='center', fontsize=25)
+    plt.xlabel('Passos', color='blue')
+    plt.ylabel('Tempo', color='blue')
+    plt.ticklabel_format(style='plain', axis='both')
+    plt.figtext(0.5, 0.01,'A complexidade do algoritmo criado é linear!', ha='center', color='red')
+    plt.show()
 
 #definição dos arquivos a serem lidos
 nomes_arq = ['casos-cohen-noite/casoG50.txt', 'casos-cohen-noite/casoG100.txt', 'casos-cohen-noite/casoG200.txt', 'casos-cohen-noite/casoG500.txt', 
              'casos-cohen-noite/casoG750.txt', 'casos-cohen-noite/casoG1000.txt', 'casos-cohen-noite/casoG1500.txt', 'casos-cohen-noite/casoG2000.txt']
 
 #main
+tempos = []
+passos = []
+
 for nome in nomes_arq:
-    processa_arquivo(nome)
+    tempo, passo = processa_arquivo(nome)
+    tempos.append(tempo)
+    passos.append(passo)
+
+plota_grafico(tempos, passos)
             
